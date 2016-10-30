@@ -1,15 +1,15 @@
-var Discord = require("discord.js");
-var request = require("request");
-var five = require("johnny-five");
+const Discord = require("discord.js");
+const request = require("request");
+const five = require("johnny-five");
 
-var api = 'txsqd8scedz7z3922rc2cnsx26mz5n55';
-var bot = new Discord.Client();
+const api = 'txsqd8scedz7z3922rc2cnsx26mz5n55';
+const bot = new Discord.Client();
+const board = new five.Board();
+
 const prefix = "!";
 var responses = {
   "!hello": ":sunglasses:",
 };
-
-var board = new five.Board();
 
 board.on("ready", function() {
   var led = new five.Led(11);
@@ -23,8 +23,8 @@ board.on("ready", function() {
 
     // Get ilvl
     if (msg.content.startsWith(prefix + "ilvl")) {
-      let args = msg.content.split(" ").slice(1);
-      let realm = 'Tichondrius';
+      var args = msg.content.split(" ").slice(1);
+      var realm = 'Tichondrius';
       if (args[1]) {
         realm = args[1];
       }
